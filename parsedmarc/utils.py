@@ -344,11 +344,12 @@ def get_ip_address_info(ip_address, cache=None, offline=False,
     info["ip_address"] = ip_address
     if offline:
         reverse_dns = None
+        country = None
     else:
         reverse_dns = get_reverse_dns(ip_address,
                                       nameservers=nameservers,
                                       timeout=timeout)
-    country = get_ip_address_country(ip_address)
+        country = get_ip_address_country(ip_address)
     info["country"] = country
     info["reverse_dns"] = reverse_dns
     info["base_domain"] = None
